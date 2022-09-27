@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("Factorial","Calculadora",FormMethod.Post))
+        {
+            
+            if (ViewBag.error != null)
+            {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.error
+                    </div>
+            }
+
+            if(ViewBag.resultado != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @ViewBag.resultado
+                </div>
+            }
+ 
+            <input id="number" name="number" type="number" required/>
+            <input type="submit" value="Calcular Factorial"/>
+            <input type="button" value="Calcular Factorial por ajax" onclick="obtenerFactorialAjax()"/>
+            <input type="button" value="Agregar Numero" onclick="AgregarNumero()"/>
+            <input type="button" value="Ordenar Numeros" onclick="OrdenarNumeros()"/>
+        
+        }
+        
+        
+    </div>
+</div>
